@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    maven { url = "https://artifact.adcubum.com/artifactory/camunda-bpm-ee" }
+    maven { url = "https://artifact.adcubum.com/artifactory/central" }
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly "javax:javaee-api:7.0"
+    implementation 'org.slf4j:slf4j-api:1.7.32'
+    compileOnly "org.camunda.bpm:camunda-engine:7.11.18-ee"
+    implementation "org.camunda.bpm.javaee:camunda-ejb-client:7.11.18-ee"
+}
+
+test {
+    useJUnitPlatform()
+}
